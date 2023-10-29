@@ -66,7 +66,7 @@ namespace _63CNTT4N2.Areas.Admin.Controllers
                 //Them moi dong du lieu
                 categoriesDAO.Insert(categories);
                 //thong bao la them du lieu thanh cong
-                TempData["message"] = new XMessage("success", "Thêm mới mẩu tin thành công");
+                TempData["message"] = new XMessage("success", "Thêm mới mẫu tin thành công");
 
                 return RedirectToAction("Index");
             }
@@ -114,14 +114,14 @@ namespace _63CNTT4N2.Areas.Admin.Controllers
             if (id == null)
             {
                 //thong bao that bai
-                TempData["message"] = new XMessage("danger", "Không tìm thấy mẩu tin");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy mẫu tin");
                 return RedirectToAction("Index");
             }
             Categories categories = categoriesDAO.getRow(id);
             if (categories == null)
             {
                 //thong bao that bai
-                TempData["message"] = new XMessage("danger", "Không tìm thấy mẩu tin");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy mẫu tin");
                 return RedirectToAction("Index");
             }
             return View(categories);
@@ -135,14 +135,14 @@ namespace _63CNTT4N2.Areas.Admin.Controllers
             if (id == null)
             {
                 //thong bao thay doi mau tin that bai
-                TempData["message"] = new XMessage("danger", "Cập nhật mẩu tin thất bại");
+                TempData["message"] = new XMessage("danger", "Cập nhật mẫu tin thất bại");
                 return RedirectToAction("Index");
             }
             Categories categories = categoriesDAO.getRow(id);
             if (categories == null)
             {
                 //thong bao thay doi mau tin that bai
-                TempData["message"] = new XMessage("danger", "Cập nhật mẩu tin thất bại");
+                TempData["message"] = new XMessage("danger", "Cập nhật mẫu tin thất bại");
                 return RedirectToAction("Index");
             }
             ViewBag.CatList = new SelectList(categoriesDAO.getList("Index"), "Id", "Name");
@@ -182,7 +182,7 @@ namespace _63CNTT4N2.Areas.Admin.Controllers
                 categoriesDAO.Update(categories);
 
                 //thong bao thay doi mau tin thanh cong
-                TempData["message"] = new XMessage("success", "Cập nhật mẩu tin thành công");
+                TempData["message"] = new XMessage("success", "Cập nhật mẫu tin thành công");
                 return RedirectToAction("Index");
             }
             //ViewBag.CatList = new SelectList(categoriesDAO.getList("Index"), "Id", "Name");
@@ -197,14 +197,14 @@ namespace _63CNTT4N2.Areas.Admin.Controllers
             if (id == null)
             {
                 //thong bao thay doi status that bai
-                TempData["message"] = new XMessage("danger", "Không tìm thấy mẩu tin");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy mẫu tin");
                 return RedirectToAction("Index");
             }
             Categories categories = categoriesDAO.getRow(id);
             if (categories == null)
             {
                 //thong bao thay doi status that bai
-                TempData["message"] = new XMessage("danger", "Không tìm thấy mẩu tin");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy mẫu tin");
                 return RedirectToAction("Index");
             }
             return View(categories);
@@ -219,7 +219,7 @@ namespace _63CNTT4N2.Areas.Admin.Controllers
             //delete 1 dong
             categoriesDAO.Delete(categories);
             //thong bao thay doi status thanh cong
-            TempData["message"] = new XMessage("success", "Xóa mẩu tin thành công");
+            TempData["message"] = new XMessage("success", "Xóa mẫu tin thành công");
             return RedirectToAction("Trash");
         }
 
@@ -231,14 +231,14 @@ namespace _63CNTT4N2.Areas.Admin.Controllers
             if (id == null)
             {
                 //thong bao that bai
-                TempData["message"] = new XMessage("danger", "Không tìm thấy mẩu tin");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy mẫu tin");
                 return RedirectToAction("Index");
             }
             Categories categories = categoriesDAO.getRow(id);
             if (categories == null)
             {
                 //thong bao thay doi status that bai
-                TempData["message"] = new XMessage("danger", "Không tìm thấy mẩu tin");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy mẫu tin");
                 return RedirectToAction("Index");
             }
             //cap nhat mot so thong tin cho DB (id==id)
@@ -252,7 +252,7 @@ namespace _63CNTT4N2.Areas.Admin.Controllers
             categoriesDAO.Update(categories);
 
             //thong bao thay doi status thanh cong
-            TempData["message"] = new XMessage("success", "Xóa mẩu tin thành công");
+            TempData["message"] = new XMessage("success", "Xóa mẫu tin thành công");
             return RedirectToAction("Index");
         }
 
@@ -271,14 +271,14 @@ namespace _63CNTT4N2.Areas.Admin.Controllers
             if (id == null)
             {
                 //thong bao that bai
-                TempData["message"] = new XMessage("danger", "Không tìm thấy mẩu tin");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy mẫu tin");
                 return RedirectToAction("Index");
             }
             Categories categories = categoriesDAO.getRow(id);
             if (categories == null)
             {
                 //thong bao thay doi status that bai
-                TempData["message"] = new XMessage("danger", "Không tìm thấy mẩu tin");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy mẫu tin");
                 return RedirectToAction("Index");
             }
             //cap nhat mot so thong tin cho DB (id==id)
@@ -292,7 +292,7 @@ namespace _63CNTT4N2.Areas.Admin.Controllers
             categoriesDAO.Update(categories);
 
             //thong bao thay doi status thanh cong
-            TempData["message"] = new XMessage("success", "Phục hồi mẩu tin thành công");
+            TempData["message"] = new XMessage("success", "Phục hồi mẫu tin thành công");
             return RedirectToAction("Index");
         }
     }
