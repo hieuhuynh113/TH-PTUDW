@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices.ComTypes;
 using System.Web;
 using System.Web.Mvc;
 using MyClass.DAO;
@@ -210,11 +211,21 @@ namespace _63CNTT4N2.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Suppliers suppliers = suppliersDAO.getRow(id);
+            //Tim va xoa anh nha cung cap
+            if (suppliersDAO.Delete(suppliers)==1)
+            {
+                string PathDir = "~Public/img/supplier";
+                if (suppliers.Img != null)
+                {
+                    string DelPath = Path.Combine(Server.MapPath(PathDir), suppliers.Img);
+                    System.IO.File.Delete(DelPath);
+                }
+            }
             //xoa mau tin ra khoi DB
             suppliersDAO.Delete(suppliers);
             //thong bao xoa mau tin thanh cong
             TempData["message"] = new XMessage("success", "Xóa nhà cung cấp thành công");
-            return RedirectToAction("Index");
+            return RedirectToAction("Trash");
         }
         //phat sinh them 1 so action: Status, Trash, DelTrash, Undo: Copy tu Category Controller
         //////////////////////////////////////////////////////////////////////////////////////
@@ -302,7 +313,7 @@ namespace _63CNTT4N2.Areas.Admin.Controllers
         //////////////////////////////////////////////////////////////////////////////////////
         //RECOVER
         // GET: Admin/Supplier/Recover/5
-        public ActionResult Recover(int? id)
+        public ActionResult Undo(int? id)
         {
             if (id == null)
             {
