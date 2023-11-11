@@ -13,7 +13,9 @@ namespace MyClass.Model
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+
+        [Display(Name = "Loại sản phẩm")]
+        [Required(ErrorMessage = "Mã loại sản phẩm không được để trống")]
         public int CatId { get; set; }
 
         [Display(Name = "Tên sản phẩm")]
@@ -22,13 +24,10 @@ namespace MyClass.Model
 
         [Display(Name = "Mã NCC")]
         [Required(ErrorMessage = "Tên sản phẩm không được để trống")]
-        public string Supplier { get; set; }
+        public int SupplierId { get; set; }
 
         [Display(Name = "Tên rút gọn")]
         public string Slug { get; set; }
-
-        [Required]
-        public string Detail { get; set; }
 
         [Display(Name = "Hình ảnh")]
         public string Img { get; set; }
@@ -43,7 +42,7 @@ namespace MyClass.Model
 
         [Display(Name = "Số lượng")]
         [Required(ErrorMessage = "Số lượng không được để trống")]
-        public int Qty { get; set; }
+        public decimal Amount { get; set; }
 
         [Display(Name = "Mô tả")]
         [Required(ErrorMessage = "Mô tả không được để trống")]
