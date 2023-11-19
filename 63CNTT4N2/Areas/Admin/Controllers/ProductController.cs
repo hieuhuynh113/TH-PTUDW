@@ -117,6 +117,8 @@ namespace _63CNTT4N2.Areas.Admin.Controllers
                 TempData["message"] = new XMessage("danger", "Không tồn tại sản phẩm");
                 return RedirectToAction("Index");
             }
+            ViewBag.ListCatID = new SelectList(categoriesDAO.getList("Index"), "Id", "Name");//sai CatId - truy van tu bang Categories
+            ViewBag.ListSupID = new SelectList(suppliersDAO.getList("Index"), "Id", "Name");//sai SupplierID - truy van bang Suppliers
             return View(products);
         }
 
@@ -282,9 +284,9 @@ namespace _63CNTT4N2.Areas.Admin.Controllers
         }
 
         //////////////////////////////////////////////////////////////////////////////////////
-        //RECOVER
-        // GET: Admin/Products/Recover/5
-        public ActionResult Recover(int? id)
+        //UNDO
+        // GET: Admin/Products/Undo/5
+        public ActionResult Undo(int? id)
         {
             if (id == null)
             {
